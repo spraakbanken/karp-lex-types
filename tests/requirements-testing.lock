@@ -25,6 +25,8 @@ pygments==2.21.0
 pytest==9.1.1
     # via pytest-cov
 pytest-cov==7.1.0
+python-ulid==4.0.1
+    # via karp-lex-types
 ruff==0.16.7
 tomli==2.4.1 ; python_full_version <= '3.11'
     # via
@@ -35,6 +37,7 @@ typing-extensions==4.16.0
     #   exceptiongroup
     #   pydantic
     #   pydantic-core
+    #   python-ulid
     #   typing-inspection
 typing-inspection==0.4.4
     # via pydantic

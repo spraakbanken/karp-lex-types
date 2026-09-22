@@ -10,6 +10,7 @@ authors = [
 ]
 dependencies = [
     "pydantic>=2.5.3",
+    "python-ulid>=4.0.1",
 ]
 
 [project.urls]
