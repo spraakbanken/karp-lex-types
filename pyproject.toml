@@ -1,6 +1,6 @@
 [project]
 name = "karp-lex-types"
-version = "0.7.3"
+version = "0.8.0"
 description = "The types of karp-lex"
 readme = "README.md"
 requires-python = ">=3.10"
