@@ -10,20 +10,16 @@ class TestEntityOrResourceIdMixin:
     def test_given_both_raises_value_error(self):
         with pytest.raises(ValueError):  # noqa: PT011
             EntityOrResourceIdMixin(
-                resourceId="abc",
-                id="01GSAHD0K063FBMFE19BFDM4E9",
+                resource_id="abc", id="01GSAHD0K063FBMFE19BFDM4E9", user="test"
             )
 
     def test_given_either_raises_value_error(self):
         with pytest.raises(ValueError):  # noqa: PT011
-            EntityOrResourceIdMixin()
+            EntityOrResourceIdMixin(user="test")
 
     def test_both_given_none_raises_value_error(self):
         with pytest.raises(ValueError):  # noqa: PT011
-            EntityOrResourceIdMixin(
-                resourceId=None,
-                entityId=None,
-            )
+            EntityOrResourceIdMixin(resource_id=None, user="test")
 
 
 class TestCreateResource:
@@ -33,6 +29,5 @@ class TestCreateResource:
                 "resource_id": "abc",
                 "resource_name": "Abc",
             },
-            entry_repo_id="01GSAHD0K063FBMFE19BFDM4E9",
         )
         assert cmd.cmdtype == "create_resource"

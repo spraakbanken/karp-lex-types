@@ -10,10 +10,6 @@ def test_unique_ids_are_sortable():
 
 
 class TestUniqueId:
-    def test_bad_type_raises_type_error(self) -> None:
-        with pytest.raises(TypeError):
-            UniqueId.validate(None)
-
     def test_bad_input_raises_value_error(self) -> None:
         with pytest.raises(ValueError):  # noqa: PT011
-            UniqueId.validate("not-an-ulid")
+            UniqueId("not-an-ulid")  # ty: ignore[invalid-argument-type]

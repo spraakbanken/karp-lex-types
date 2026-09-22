@@ -7,7 +7,7 @@ class TestDeserializeEntryCommand:
         data = {
             "cmd": {
                 "cmdtype": "add_entry",
-                "resourceId": "resource_a",
+                "resource_id": "resource_a",
                 "entry": {"baseform": "sko"},
                 "message": "add sko",
                 "user": "alice@example.com",
@@ -22,7 +22,7 @@ class TestDeserializeEntryCommand:
         data = {
             "cmd": {
                 "cmdtype": "delete_entry",
-                "resourceId": "resource_a",
+                "resource_id": "resource_a",
                 "id": make_unique_id(),
                 "version": 1,
                 "message": "add sko",
@@ -38,7 +38,7 @@ class TestDeserializeEntryCommand:
         data = {
             "cmd": {
                 "cmdtype": "update_entry",
-                "resourceId": "resource_a",
+                "resource_id": "resource_a",
                 "id": make_unique_id(),
                 "entry": {"baseform": "sko"},
                 "version": 1,
@@ -57,7 +57,7 @@ class TestSerializeEntryCommand:
         data = {
             "cmd": {
                 "cmdtype": "add_entry",
-                "resourceId": "resource_a",
+                "resource_id": "resource_a",
                 "entry": {"baseform": "sko"},
                 "message": "add sko",
                 "user": "alice@example.com",
@@ -73,7 +73,7 @@ class TestSerializeEntryCommand:
         data = {
             "cmd": {
                 "cmdtype": "delete_entry",
-                "resourceId": "resource_a",
+                "resource_id": "resource_a",
                 "id": make_unique_id(),
                 "version": 1,
                 "message": "add sko",
@@ -90,7 +90,7 @@ class TestSerializeEntryCommand:
         data = {
             "cmd": {
                 "cmdtype": "update_entry",
-                "resourceId": "resource_a",
+                "resource_id": "resource_a",
                 "id": make_unique_id(),
                 "entry": {"baseform": "sko"},
                 "version": 1,

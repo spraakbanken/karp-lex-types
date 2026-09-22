@@ -1,10 +1,10 @@
 from datetime import datetime  # noqa: D100
 from typing import Generic, TypeVar
 
+import ulid
 from pydantic import BaseModel, ConfigDict, model_validator
 
 from karp_lex_types import alias_generators
-from karp_lex_types.value_objects import UniqueIdStr
 
 T = TypeVar("T")
 
@@ -13,7 +13,7 @@ class GenericEntryDto(BaseModel, Generic[T]):  # noqa: D101
     entry: T
     last_modified_by: str | None = None
     last_modified: datetime | None = None
-    id: UniqueIdStr | None = None
+    id: ulid.ULID | None = None
     version: int | None = None
     resource: str | None = None
     message: str | None = None
