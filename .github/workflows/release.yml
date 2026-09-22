@@ -99,11 +99,10 @@ jobs:
           name: pypi_files
           path: dist
 
-      - run: rm -r <INSERT PROJECT SRC>
+      - run: rm -r src
       - run: pip install typing-extensions
       - run: pip install -r tests/requirements-testing.lock
-      - run:
-          pip install <INSERT PROJECT NAME> --no-index --no-deps --find-links dist
+      - run: pip install karp-lex-types --no-index --no-deps --find-links dist
           --force-reinstall
       - run: pytest
 
