@@ -134,3 +134,4 @@ dmypy.json
 log.txt
 poetry.lock
 .pdm-python
+coverage.lcov

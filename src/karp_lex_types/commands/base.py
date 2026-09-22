@@ -5,8 +5,6 @@ from datetime import datetime, timezone
 import pydantic
 from pydantic import ConfigDict
 
-from karp_lex_types import alias_generators
-
 
 def utc_now() -> float:
     """A UTC timestamp in seconds.
@@ -23,7 +21,7 @@ class Command(pydantic.BaseModel):  # noqa: D101
     model_config = ConfigDict(
         arbitrary_types_allowed=True,
         extra="forbid",
-        alias_generator=alias_generators.to_lower_camel,
+        # alias_generator=alias_generators.to_lower_camel,
     )
 
     def serialize(self) -> dict:

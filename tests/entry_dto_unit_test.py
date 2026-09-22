@@ -9,7 +9,7 @@ def test_can_create_entry_dto():
 
 
 def test_can_create_entry_dto_with_last_modified_by():
-    entry_dto = EntryDto(entry={"field": "value"}, lastModifiedBy="username@example.com")
+    entry_dto = EntryDto(entry={"field": "value"}, last_modified_by="username@example.com")
 
     assert entry_dto.last_modified is None
     assert entry_dto.last_modified_by == "username@example.com"
@@ -29,7 +29,7 @@ def test_example_snake_case():
         "last_modified": 1671443451.340828,
         "last_modified_by": "local admin",
     }
-    entry_dto = EntryDto(**data)
+    entry_dto = EntryDto(**data)  # ty: ignore[invalid-argument-type]
 
     assert entry_dto.id == data["id"]
     assert entry_dto.resource == data["resource"]

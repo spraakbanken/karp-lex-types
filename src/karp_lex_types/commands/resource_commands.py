@@ -3,10 +3,10 @@
 from typing import Generic, Literal, TypeVar
 
 import pydantic
+import ulid
 
 from karp_lex_types.value_objects.unique_id import (
     UniqueId,
-    UniqueIdPrimitive,
     make_unique_id,
 )
 
@@ -17,30 +17,30 @@ T = TypeVar("T")
 
 class EntityOrResourceIdMixin(Command):  # noqa: D101
     resource_id: str | None = None
-    id: UniqueId | None = None
+    id: ulid.ULID | None = None
 
     @pydantic.field_serializer("id")
-    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: PLR6301, A002
+    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: A002
         """Serialize id as string."""
         return str(id)
 
     @pydantic.model_validator(mode="before")
     @classmethod
     def resource_id_or_id(cls, values) -> dict:  # noqa: D102
-        resource_id = values.get("resourceId", None)
+        resource_id = values.get("resource_id", None)
         if "id" in values and resource_id:
-            raise ValueError("Can't give both 'id' and 'resourceId'")
+            raise ValueError("Can't give both 'id' and 'resource_id'")
 
         if resource_id:
             return dict(values) | {
                 "id": None,
-                "resourceId": resource_id,
+                "resource_id": resource_id,
             }
         if "id" in values:
             return dict(values) | {
-                "resourceId": None,
+                "resource_id": None,
             }
-        raise ValueError("Must give either 'id' or 'resourceId'")
+        raise ValueError("Must give either 'id' or 'resource_id'")
 
 
 class GenericCreateResource(Command, Generic[T]):  # noqa: D101
@@ -48,18 +48,12 @@ class GenericCreateResource(Command, Generic[T]):  # noqa: D101
     resource_id: str
     name: str
     config: T
-    entry_repo_id: UniqueId
     cmdtype: Literal["create_resource"] = "create_resource"
 
     @pydantic.field_serializer("id")
-    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: PLR6301, A002
+    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: A002
         """Serialize id as string."""
         return str(id)
-
-    @pydantic.field_serializer("entry_repo_id")
-    def serialize_entry_repo_id(self, entry_repo_id: UniqueId, _info) -> str:  # noqa: PLR6301
-        """Serialize id as string."""
-        return str(entry_repo_id)
 
 
 class CreateResource(GenericCreateResource[dict]):
@@ -69,7 +63,6 @@ class CreateResource(GenericCreateResource[dict]):
     def from_dict(  # noqa: D102
         cls,
         data: dict,
-        entry_repo_id: UniqueIdPrimitive,
         user: str | None = None,
         message: str | None = None,
     ) -> "CreateResource":
@@ -83,10 +76,9 @@ class CreateResource(GenericCreateResource[dict]):
             raise ValueError("'resource_name' is missing") from exc
 
         return cls(
-            resourceId=resource_id,
+            resource_id=resource_id,
             name=name,
             config=data,
-            entryRepoId=entry_repo_id,
             user=user or "Unknown user",
             message=message or f"Resource '{resource_id}' created.",
         )
@@ -116,11 +108,11 @@ class DeleteResource(EntityOrResourceIdMixin, Command):  # noqa: D101
 
 
 class SetEntryRepoId(EntityOrResourceIdMixin, Command):  # noqa: D101
-    entry_repo_id: UniqueId
+    entry_repo_id: ulid.ULID
     version: int
     cmdtype: Literal["set_entry_repo_id"] = "set_entry_repo_id"
 
     @pydantic.field_serializer("entry_repo_id")
-    def serialize_entry_repo_id(self, entry_repo_id: UniqueId, _info) -> str:  # noqa: PLR6301
+    def serialize_entry_repo_id(self, entry_repo_id: UniqueId, _info) -> str:
         """Serialize id as string."""
         return str(entry_repo_id)
