@@ -8,9 +8,28 @@ license = "MIT"
 authors = [
   { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
 ]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  # "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  # "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.14",
+  "Programming Language :: Python :: Implementation :: CPython",
+  # "uncomment if you test on these interpreters:",
+  # "Programming Language :: Python :: Implementation :: IronPython",
+  # "Programming Language :: Python :: Implementation :: Jython",
+  # "Programming Language :: Python :: Implementation :: Stackless",
+  "Topic :: Utilities",
+]
 dependencies = [
-    "pydantic>=2.5.3",
-    "python-ulid>=4.0.1",
+  "pydantic>=2.5.3",
+  "python-ulid>=4.0.1",
 ]
 
 [project.urls]
