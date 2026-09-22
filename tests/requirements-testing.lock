@@ -32,6 +32,7 @@ tomli==2.4.1 ; python_full_version <= '3.11'
     # via
     #   coverage
     #   pytest
+ty==0.0.81
 typing-extensions==4.16.0
     # via
     #   exceptiongroup
