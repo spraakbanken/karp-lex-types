@@ -16,7 +16,7 @@ def make_unique_id(
     >>> from datetime import datetime
     >>> old_id = make_unique_id(datetime(1999,12,31,23,59,59))
     >>> make_unique_id() > old_id
-    True:w
+    True
 
     """
     val = t.timestamp() if isinstance(t, datetime.datetime) else t
