@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [unreleased]
+
+### Documentation
+
+- Update badges in README by [@kod-kristoff](https://github.com/kod-kristoff)
+- Add project.classifiers by [@kod-kristoff](https://github.com/kod-kristoff)
+
+### Fixed
+
+- Update models to latest karp version by [@kod-kristoff](https://github.com/kod-kristoff)
+
+### Miscellaneous Tasks
+
+- Use uv instead of pdm by [@kod-kristoff](https://github.com/kod-kristoff)
+- _(dev-deps)_ Add ty>=0.0.81 by [@kod-kristoff](https://github.com/kod-kristoff)
+- Transform readme during release by [@kod-kristoff](https://github.com/kod-kristoff)
+- Update cliff config
+
 ## [0.7.3] - 2024-05-22
 
 ### Fixed
