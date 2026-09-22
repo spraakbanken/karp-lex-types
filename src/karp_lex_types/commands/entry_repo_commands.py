@@ -33,6 +33,6 @@ class CreateEntryRepository(Command):
         )
 
     @pydantic.field_serializer("id")
-    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: PLR6301, A002
+    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: A002
         """Serialize id as string."""
         return str(id)

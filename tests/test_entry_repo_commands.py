@@ -2,7 +2,7 @@ from karp_lex_types.commands import CreateEntryRepository
 
 
 class TestCreateEntryRepository:
-    def test_from_dict_works(self) -> None:  # noqa: PLR6301
+    def test_from_dict_works(self) -> None:
         cmd = CreateEntryRepository.from_dict(
             {
                 "resource_id": "abc",

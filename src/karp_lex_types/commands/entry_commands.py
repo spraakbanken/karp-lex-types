@@ -25,7 +25,7 @@ class GenericAddEntry(Command, Generic[T]):  # noqa: D101
     cmdtype: Literal["add_entry"] = "add_entry"
 
     @pydantic.field_serializer("id")
-    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: PLR6301, A002
+    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: A002
         """Serialize id as string."""
         return str(id)
 
@@ -53,7 +53,7 @@ class DeleteEntry(Command):  # noqa: D101
     cmdtype: Literal["delete_entry"] = "delete_entry"
 
     @pydantic.field_serializer("id")
-    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: PLR6301, A002
+    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: A002
         """Serialize id as string."""
         return str(id)
 
@@ -76,7 +76,7 @@ class GenericUpdateEntry(Command, Generic[T]):  # noqa: D101
     cmdtype: Literal["update_entry"] = "update_entry"
 
     @pydantic.field_serializer("id")
-    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: PLR6301, A002
+    def serialize_id(self, id: UniqueId, _info) -> str:  # noqa: A002
         """Serialize id as string."""
         return str(id)
 
