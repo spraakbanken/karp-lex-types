@@ -8,6 +8,7 @@ sign_tag = true
 allow_dirty = false
 message = "chore(release): Bump version: {current_version} → {new_version}"
 commit_args = "--no-verify"
+pre_commit_hooks = ["uv lock", "git add --update"]
 
 [[tool.bumpversion.files]]
 filename = "pyproject.toml"
@@ -16,10 +17,10 @@ replace = 'version = "{new_version}"'
 
 [[tool.bumpversion.files]]
 filename = "CHANGELOG.md"
-search = '## [unreleased]'
-replace = '## [{new_version}] - {now:%Y-%m-%d}'
+search = "## [unreleased]"
+replace = "## [{new_version}] - {now:%Y-%m-%d}"
+
 [[tool.bumpversion.file]]
 filename = "src/karp_lex_types/__init__.py"
 search = '__version__ = "{current_version}"'
 replace = '__version__ = "{new_version}"'
-
