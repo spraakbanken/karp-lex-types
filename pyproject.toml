@@ -8,7 +8,9 @@ license = "MIT"
 authors = [
   { name = "Språkbanken Text", email = "sb-info@svenska.gu.se" },
 ]
-dependencies = ["pydantic>=2.5.3", "ulid-py>=1.1.0"]
+dependencies = [
+    "pydantic>=2.5.3",
+]
 
 [project.urls]
 Documentation = "https://github.com/spraakbanken/karp-lex-types"

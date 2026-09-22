@@ -38,5 +38,3 @@ typing-extensions==4.16.0
     #   typing-inspection
 typing-inspection==0.4.4
     # via pydantic
-ulid-py==1.1.0
-    # via karp-lex-types
